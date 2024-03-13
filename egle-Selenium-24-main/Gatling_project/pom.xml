@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>org.example</groupId>
+    <artifactId>Gatling_project</artifactId>
+    <version>1.0-SNAPSHOT</version>
+
+    <properties>
+        <maven.compiler.source>21</maven.compiler.source>
+        <maven.compiler.target>21</maven.compiler.target>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
+    <dependencies>
+        <!-- https://mvnrepository.com/artifact/io.gatling/gatling-core -->
+        <dependency>
+            <groupId>io.gatling</groupId>
+            <artifactId>gatling-core</artifactId>
+            <version>3.10.4</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/io.gatling/gatling-core-java -->
+        <dependency>
+            <groupId>io.gatling</groupId>
+            <artifactId>gatling-core-java</artifactId>
+            <version>3.10.4</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/io.gatling/gatling-test-framework -->
+        <dependency>
+            <groupId>io.gatling</groupId>
+            <artifactId>gatling-test-framework</artifactId>
+            <version>3.10.4</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/io.gatling.highcharts/gatling-charts-highcharts -->
+        <dependency>
+            <groupId>io.gatling.highcharts</groupId>
+            <artifactId>gatling-charts-highcharts</artifactId>
+            <version>3.10.4</version>
+            <!-- https://mvnrepository.com/artifact/ch.qos.logback/logback-classic -->
+        </dependency>
+        <dependency>
+            <groupId>ch.qos.logback</groupId>
+            <artifactId>logback-classic</artifactId>
+            <version>1.5.1</version>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+<build>
+    <plugins>
+        <plugin>
+            <groupId>io.gatling</groupId>
+            <artifactId>gatling-maven-plugin</artifactId>
+            <version>4.8.2</version>
+            <executions>
+                <execution>
+                    <id>simulation1</id>
+                    <phase>test</phase>
+                    <configuration>
+                        <simulationClass>simulation.GetBookingsSimulation</simulationClass>
+                    </configuration>
+                </execution>
+                <execution>
+                    <id>simulation2</id>
+                    <phase>test</phase>
+                    <configuration>
+                        <simulationClass>simulation.GetAllSimulation</simulationClass>
+                    </configuration>
+                </execution>
+                <execution>
+                    <id>simulation3</id>
+                    <phase>test</phase>
+                    <configuration>
+                        <simulationClass>simulation.PatchBooking</simulationClass>
+                    </configuration>
+                </execution>
+            </executions>
+        </plugin>
+
+    </plugins>
+</build>
+</project>
